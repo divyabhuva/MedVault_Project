@@ -8,9 +8,7 @@ import api from "../api/axios";
 
 const Prescriptions = () => {
 
-  // ===============================
-  // STATES
-  // ===============================
+  
   const [prescriptions, setPrescriptions] =
     useState([]);
 
@@ -42,9 +40,7 @@ const Prescriptions = () => {
 
   }, []);
 
-  // ===============================
-  // FETCH PRESCRIPTIONS
-  // ===============================
+ 
   const fetchPrescriptions = async () => {
 
     try {
@@ -69,9 +65,7 @@ const Prescriptions = () => {
     }
   };
 
-  // ===============================
-  // FETCH DRUGS
-  // ===============================
+
   const fetchDrugs = async () => {
 
     try {
@@ -87,9 +81,7 @@ const Prescriptions = () => {
     }
   };
 
-  // ===============================
-  // HANDLE CHANGE
-  // ===============================
+
   const handleChange = (e) => {
 
     const { name, value } = e.target;
@@ -99,9 +91,6 @@ const Prescriptions = () => {
       [name]: value,
     });
 
-    // ===============================
-    // SELECTED DRUG
-    // ===============================
     if (name === "drug_name") {
 
       const drug = drugs.find(
@@ -112,16 +101,10 @@ const Prescriptions = () => {
     }
   };
 
-  // ===============================
-  // CREATE PRESCRIPTION
-  // ===============================
   const handleSubmit = async (e) => {
 
     e.preventDefault();
 
-    // ===============================
-    // FRONTEND STOCK CHECK
-    // ===============================
     if (
       selectedDrug &&
       Number(formData.quantity)
@@ -181,9 +164,7 @@ ${selectedDrug.stock_quantity}
     }
   };
 
-  // ===============================
-  // DISPENSE
-  // ===============================
+
   const handleDispense = async (id) => {
 
     try {
@@ -216,9 +197,7 @@ ${response.data.remaining_stock}
     }
   };
 
-  // ===============================
-  // CANCEL
-  // ===============================
+
   const handleCancel = async (id) => {
 
     try {
@@ -262,9 +241,7 @@ ${response.data.remaining_stock}
           p-6
         ">
 
-          {/* ===============================
-              HEADER
-          =============================== */}
+        
           <div className="mb-8">
 
             <h1 className="
@@ -285,9 +262,7 @@ ${response.data.remaining_stock}
 
           </div>
 
-          {/* ===============================
-              CREATE FORM
-          =============================== */}
+        
           <div className="
             bg-white
             p-6
@@ -550,9 +525,7 @@ ${response.data.remaining_stock}
 
           </div>
 
-          {/* ===============================
-              TABLE
-          =============================== */}
+         
           {loading ? (
 
             <div className="

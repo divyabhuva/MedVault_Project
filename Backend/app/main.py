@@ -32,9 +32,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 app.include_router(auth.router, prefix="/api")
-
 app.include_router(drugs.router, prefix="/api")
 
 app.include_router(
@@ -51,5 +49,5 @@ app.include_router(
 def root():
 
     return {
-        "message": "MedVault API Running"
+        "message": "MedVault Api Is Running"
     }

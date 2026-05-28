@@ -217,9 +217,6 @@ def cancel_prescription(
             status_code=404,
             detail="Prescription not found",
         )
-
-    
-    # UPDATE STATUS
     
     prescription.status = "cancelled"
 

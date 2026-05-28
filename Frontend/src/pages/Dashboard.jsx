@@ -59,9 +59,7 @@ const Dashboard = () => {
       }
     };
 
-  // =========================
-  // BAR CHART DATA
-  // =========================
+ 
   const barData = [
     {
       name: "Drugs",
@@ -83,9 +81,6 @@ const Dashboard = () => {
     },
   ];
 
-  // =========================
-  // PIE CHART DATA
-  // =========================
   const pieData = [
     {
       name: "Dispensed",

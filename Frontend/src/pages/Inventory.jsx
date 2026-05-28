@@ -1,43 +1,25 @@
 import { useEffect, useState } from "react";
-
 import Navbar from "../components/Navbar";
-
 import Sidebar from "../components/Sidebar";
-
 import api from "../api/axios";
-
 import { Link } from "react-router-dom";
 
 const Inventory = () => {
-
-  // =========================
-  // STATES
-  // =========================
+  
   const [drugs, setDrugs] = useState([]);
-
   const [search, setSearch] = useState("");
-
   const [loading, setLoading] = useState(true);
 
-  // =========================
-  // GET LOGGED USER
-  // =========================
   const user = JSON.parse(
     localStorage.getItem("user")
   );
 
-  // =========================
-  // FETCH DATA
-  // =========================
   useEffect(() => {
 
     fetchDrugs();
 
   }, []);
 
-  // =========================
-  // FETCH DRUGS
-  // =========================
   const fetchDrugs = async () => {
 
     try {
@@ -61,9 +43,6 @@ const Inventory = () => {
     }
   };
 
-  // =========================
-  // DELETE DRUG
-  // =========================
   const handleDelete = async (id) => {
 
     const confirmDelete = window.confirm(
@@ -89,9 +68,6 @@ const Inventory = () => {
     }
   };
 
-  // =========================
-  // SEARCH FILTER
-  // =========================
   const filteredDrugs = drugs.filter(
     (drug) =>
       drug.name
@@ -113,9 +89,6 @@ const Inventory = () => {
 
         <div className="flex-1 min-h-screen bg-gray-100 p-6">
 
-          {/* =========================
-              PAGE HEADER
-          ========================= */}
           <div className="
             flex
             flex-col
@@ -167,9 +140,6 @@ const Inventory = () => {
 
           </div>
 
-          {/* =========================
-              SEARCH BAR
-          ========================= */}
           <div className="mb-6">
 
             <input

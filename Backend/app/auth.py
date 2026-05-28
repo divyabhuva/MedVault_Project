@@ -24,7 +24,7 @@ def create_token(data: dict):
 
     payload = data.copy()
 
-    # TOKEN EXPIRATION
+    
     payload["exp"] = (
         datetime.utcnow() +
         timedelta(
@@ -52,7 +52,7 @@ def verify_token(token: str):
             algorithms=[ALGORITHM]
         )
 
-        # CHECK REDIS SESSION
+        
         session = redis_client.get(
             f"session:{token}"
         )

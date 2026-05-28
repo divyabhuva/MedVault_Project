@@ -3,15 +3,10 @@ from fastapi import (
     Depends,
     HTTPException
 )
-
 from sqlalchemy.orm import Session
-
 from app.dependencies import get_db
-
 from app.models import Drug
-
 from app.schemas import DrugSchema
-
 from app.auth import (
     get_current_user,
     admin_only
@@ -19,9 +14,7 @@ from app.auth import (
 
 router = APIRouter()
 
-
 # GET ALL DRUGS
-# ADMIN + PHARMACIST
 
 @router.get("/drugs")
 def get_drugs(
@@ -32,11 +25,6 @@ def get_drugs(
     drugs = db.query(Drug).all()
 
     return drugs
-
-
-
-# ADD DRUG
-# ADMIN ONLY
 
 @router.post("/drugs")
 def add_drug(
@@ -68,11 +56,6 @@ def add_drug(
         "message": "Drug added successfully",
         "drug": new_drug
     }
-
-
-
-# UPDATE DRUG
-# ADMIN ONLY
 
 @router.put("/drugs/{drug_id}")
 def update_drug(
@@ -126,11 +109,6 @@ def update_drug(
         "message": "Drug updated successfully",
         "drug": drug
     }
-
-
-
-# DELETE DRUG
-# ADMIN ONLY
 
 @router.delete("/drugs/{drug_id}")
 def delete_drug(
